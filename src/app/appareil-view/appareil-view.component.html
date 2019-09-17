@@ -5,10 +5,16 @@
         <app-appareil *ngFor="let appareil of appareils; let i = index" [indexOfAppareil]="i"
             [appareilName]="appareil.name" [appareilStatus]="appareil.status" [id]="appareil.id"></app-appareil>
     </ul>
-    <button class="btn btn-success" (click)="onAllumer()">
+    <button class="btn btn-success" *ngIf="appareils.length > 0" (click)="onAllumer()">
         Tout allumer
     </button>
-    <button style="margin-left: 20px" class="btn btn-danger" (click)="onEteindre()">
+    <button style="margin-left: 20px" *ngIf="appareils.length > 0" class="btn btn-danger" (click)="onEteindre()">
         Tout éteindre
+    </button>
+    <button style="margin-left: 20px" class="btn btn-primary" (click)="onSave()">
+        Enregistrer
+    </button>
+    <button style="margin-left: 20px" class="btn btn-primary" (click)="onFetch()">
+        Charger
     </button>
 </div>

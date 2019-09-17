@@ -36,6 +36,8 @@ export class AppareilViewComponent implements OnInit {
       }
     );
     this.appareilService.emitAppareilSubject();
+
+    this.appareilService.getAppareilsFromServer();
   }
 
   onAllumer() {
@@ -46,5 +48,13 @@ export class AppareilViewComponent implements OnInit {
     if (confirm('Etes-vous sûr de vouloir éteindre tous vos appareils ?')) {
       this.appareilService.switchOffAll();
     }
+  }
+
+  onSave() {
+    this.appareilService.saveAppareilsToServer();
+  }
+
+  onFetch() {
+    this.appareilService.getAppareilsFromServer();
   }
 }
